@@ -10,6 +10,7 @@ import Menu from "../components/menu/Menu";
 import stylesapp from "./app.module.scss";
 import useSWR from 'swr';
 import { useState } from "react";
+import { API_URL } from "../config/index";
 
 function Home(projects) {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -47,7 +48,7 @@ function Home(projects) {
     );
 }
 export async function getServerSideProps() {
-    const res = await fetch('http://127.0.0.1:8000/api/Projects/');
+    const res = await fetch(`${API_URL}/api/Projects/`);
     const projects = await res.json();
     return {
         props: {

@@ -3,6 +3,8 @@ import styleContact from "./contact.module.scss";
 import Image from 'next/image'
 import Contact_svg from '../../assets/shake.svg';
 import Axios from "axios";
+import { API_URL } from "../../config/index";
+
 function Contact() {
   const [message, setMessage] = useState(false);
   const [NoNameError, setNoNameError] = useState(false);
@@ -49,7 +51,7 @@ function Contact() {
         setWrongEmailError(false)
         setMessage(true)
         /*const response = */
-        Axios.post(`${NEXT_URL}/api/email/`, {
+        Axios.post(`${API_URL}/api/email/`, {
           'Name': mailerState.name,
           'Email': mailerState.email,
           'Message': mailerState.message,
