@@ -49,7 +49,7 @@ function Contact() {
         setWrongEmailError(false)
         setMessage(true)
         /*const response = */
-        Axios.post(`http://127.0.0.1:8000/api/email/`, {
+        Axios.post(`${NEXT_URL}/api/email/`, {
           'Name': mailerState.name,
           'Email': mailerState.email,
           'Message': mailerState.message,
