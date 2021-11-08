@@ -16,7 +16,30 @@ function Portfolio({ projects }) {
         className={stylesPortfolio.slider}
         style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
       >
-        
+        {projects && projects.projects.map((project) => (
+          <>
+            <div className={stylesPortfolio.container} key={project.id}>
+              <div className={stylesPortfolio.item} >
+                <div className={stylesPortfolio.left}>
+                  <div className={stylesPortfolio.leftContainer}>
+                    <div className={stylesPortfolio.imgContainer}>
+                      <img src={project.thumbnail} />
+                    </div>
+                    <Link href={project.link}><h2 className={stylesPortfolio.Clicker}>{project.title}</h2></Link>
+                    <p>{project.description}</p>
+                  </div>
+                </div>
+                <div className={stylesPortfolio.right}>
+                <Link href={project.link}>
+                  <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
+                    alt="Front Page of website"
+                  />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </>
+        ))}
 
       </div>
       <div className={stylesPortfolio.Arrow_left_placer}>
@@ -41,30 +64,4 @@ function Portfolio({ projects }) {
   )
 }
 
-export default Portfolio
-
-/*{projects && projects.projects.map((project) => (
-          <>
-            <div className={stylesPortfolio.container} key={project.id}>
-              <div className={stylesPortfolio.item} >
-                <div className={stylesPortfolio.left}>
-                  <div className={stylesPortfolio.leftContainer}>
-                    <div className={stylesPortfolio.imgContainer}>
-                      <img src={project.thumbnail} />
-                    </div>
-                    <Link href={project.link}><h2 className={stylesPortfolio.Clicker}>{project.title}</h2></Link>
-                    <p>{project.description}</p>
-                  </div>
-                </div>
-                <div className={stylesPortfolio.right}>
-                <Link href={project.link}>
-                  <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
-                    alt="Front Page of website"
-                  />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </>
-        ))}
-        */
+export default Portfolio;
