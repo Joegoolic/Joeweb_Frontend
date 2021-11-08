@@ -1,0 +1,234 @@
+@import "../../styles/global.module.scss";
+.skills {
+  background-color: $Indigo_two;
+  color: $Midnight;
+  display: flex;
+  overflow-x: hidden;
+
+  .skills_Container {
+    margin-top: 3%;
+    display: flex;
+    flex: 100%;
+    overflow-y: hidden;
+    .skills_filler {
+      flex: 5%;
+      @include mobile {
+        display: none;
+      }
+    }
+    .skills_list::-webkit-scrollbar {
+      display: none;
+    }
+    .skills_list {
+      justify-content: center;
+      padding-left: 10%;
+      padding-right: 10%;
+      margin-right: 5%;
+      height: 85vh;
+      border: black solid 3px;
+      box-shadow: black 2px;
+      border-radius: 20%;
+      margin-bottom: 2%;
+      background-color: whitesmoke;
+      text-shadow: black 1px;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      @include mobile {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .skillsHeader {
+        display: flex;
+        justify-content: center;
+        margin-top: 2%;
+        margin-bottom: 6%;
+        @include mobile {
+          margin-top: 1%;
+          margin-bottom: 2%;
+        }
+
+        h1 {
+          font-size: 4rem;
+          font-weight: 700;
+          @include mobile {
+            font-size: 2rem;
+          }
+        }
+      }
+      .skills_position {
+        display: flex;
+        position: relative;
+        justify-content: center;
+
+        .Animation_control_on {
+          position: absolute;
+          justify-content: center;
+
+          .skillsElement {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3%;
+            @include mobile {
+              margin-bottom: 0.5%;
+            }
+            h2 {
+              font-size: 2.5rem;
+              font-weight: 500;
+              @include mobile {
+                font-size: 1.5rem;
+              }
+            }
+          }
+          .span_Center {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5%;
+            @include mobile {
+              margin-bottom: 0.5%;
+            }
+            span {
+              font-size: 1.7rem;
+              font-weight: 500;
+              @include mobile {
+                font-size: 1rem;
+              }
+            }
+          }
+
+          &.active {
+            opacity: 0;
+          }
+        }
+        .Animation_control_off {
+          opacity: 0;
+
+          .skillsElement {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3%;
+            @include mobile {
+              margin-bottom: 0.5%;
+            }
+            h2 {
+              font-size: 2.5rem;
+              font-weight: 500;
+              @include mobile {
+                font-size: 1.5rem;
+              }
+            }
+          }
+          .span_Center {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5%;
+            @include mobile {
+              margin-bottom: 0.5%;
+            }
+            span {
+              font-size: 1.7rem;
+              font-weight: 500;
+              @include mobile {
+                font-size: 1rem;
+              }
+            }
+          }
+
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+      .ButtonPosition {
+        margin-top: 2%;
+        @include mobile {
+          margin-top: calc(100vh - 90vh);
+        }
+
+        .button_center_on {
+          display: flex;
+          justify-content: center;
+          opacity: 1;
+          button {
+            position: absolute;
+            display: flex;
+            width: 150px;
+            height: 30px;
+            color: white;
+            background-color: rgb(80, 79, 79);
+            border: none;
+            border-radius: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            @include mobile {
+              width: 8rem;
+              height: 3.5rem;
+              overflow-x: hidden;
+              overflow-y: hidden;
+            }
+
+            &:focus {
+              outline: none;
+            }
+          }
+          &.active {
+            opacity: 0;
+          }
+        }
+        .button_center_off {
+          display: flex;
+          justify-content: center;
+          opacity: 0;
+          button {
+            position: absolute;
+            display: flex;
+            width: 150px;
+            height: 30px;
+            color: white;
+            background-color: rgb(80, 79, 79);
+            border: none;
+            border-radius: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            @include mobile {
+              width: 8rem;
+              height: 3.5rem;
+              overflow-x: hidden;
+              overflow-y: hidden;
+            }
+
+            &:focus {
+              outline: none;
+            }
+          }
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .skills_image_container {
+      @include mobile {
+        display: none;
+      }
+      flex: 25%;
+      align-self: flex-end;
+      img {
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+}

@@ -1,0 +1,159 @@
+@import "../../styles/global.module.scss";
+.contact {
+  background-color: $Periwinkle;
+  display: flex;
+  color: $Text;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  .leftc {
+    width: 65%;
+    overflow: hidden;
+    @include mobile {
+      display: none;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+  .rightc {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    @include mobile {
+      width: 95%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2 {
+      font-size: 30px;
+      color: black;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+
+    form {
+      width: 70%;
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      border: black 2px solid;
+      border-radius: 1rem;
+      box-shadow: white 2px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      @include mobile {
+        width: 80%;
+        height: 90%;
+      }
+      @include h_s {
+        height: 95%;
+      }
+
+      .error_organizer {
+        display: flex;
+        justify-content: center;
+        h3 {
+          position: absolute;
+          opacity: 0;
+          font-weight: 300;
+          font-size: 1.3em;
+          color: red;
+          &.error {
+            opacity: 1;
+          }
+        }
+      }
+      input {
+        width: 90%;
+        height: 7%;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        text-align: center;
+        margin-top: 1.5%;
+        &.error {
+          border: red solid 2px;
+        }
+
+        @include mobile {
+          width: 90%;
+          height: 8%;
+          font-size: 1.5rem;
+          border-radius: 1rem;
+        }
+      }
+
+      textarea {
+        width: 90%;
+        height: 10%;
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        text-align: center;
+
+        @include mobile {
+          width: 90%;
+          height: 10%;
+          font-size: 1.5rem;
+          border-radius: 1rem;
+        }
+      }
+
+      button {
+        width: auto;
+        height: auto;
+        color: white;
+        background-color: rgb(80, 79, 79);
+        border: none;
+        border-radius: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        padding: 1%;
+        padding-left: 2%;
+        padding-right: 2%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        margin-bottom: 1%;
+        @include h_s {
+          padding-left: 4%;
+          padding-right: 4%;
+          align-items: center;
+          justify-content: center;
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
+          overflow-x: hidden;
+          overflow-y: hidden;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+
+      span {
+        color: green;
+      }
+    }
+  }
+}
