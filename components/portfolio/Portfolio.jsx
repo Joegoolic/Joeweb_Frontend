@@ -1,5 +1,6 @@
 import { useState } from "react";
 import stylesPortfolio from "./portfolio.module.scss";
+import { IoIosArrowForward, IoIosArrowBack} from "react-icons/io";
 import Link from 'next/link'
 import Image from 'next/image'
 import arrow from '../../assets/arrow.svg'
@@ -17,51 +18,69 @@ function Portfolio({ projects }) {
         style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
       >
         {projects && projects.projects.map((project) => (
-          <>
             <div className={stylesPortfolio.container} key={project.id}>
-              <div className={stylesPortfolio.item} >
-                <div className={stylesPortfolio.left}>
-                  <div className={stylesPortfolio.leftContainer}>
+              <div className={stylesPortfolio.item}>
+                  <div className={stylesPortfolio.topContainer}>
                     <div className={stylesPortfolio.imgContainer}>
-                      <img src={project.thumbnail} />
+                      <Link href={project.link}>
+                        <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
+                        alt="Front Page of website"
+                        />
+                      </Link>
                     </div>
-                    <Link href={project.link}><h2 className={stylesPortfolio.Clicker}>{project.title}</h2></Link>
-                    <p>{project.description}</p>
                   </div>
+                <div className={stylesPortfolio.MidContainer}>
+                  <div className={stylesPortfolio.grouper}>
+                      <img className = {stylesPortfolio.imgContainer}src={project.thumbnail}/>
+                      <div className={stylesPortfolio.HeaderContainer}>
+                        <Link href={project.link}><h2 className={stylesPortfolio.Clicker}>{project.title}</h2></Link>
+                      </div>
+                    </div>
                 </div>
-                <div className={stylesPortfolio.right}>
-                <Link href={project.link}>
-                  <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
-                    alt="Front Page of website"
-                  />
-                  </Link>
+                <div className={stylesPortfolio.bottomContainer}>
+                  <div className={stylesPortfolio.description}>
+                    <p>{project.description}</p>
+                    </div>
+                    <div className={stylesPortfolio.techstack}>
+                    <p>{project.tech_stack}</p>
+                    </div>
                 </div>
               </div>
             </div>
-          </>
         ))}
+        </div>
 
-      </div>
-      <div className={stylesPortfolio.Arrow_left_placer}>
-        <Image
+        <div className={stylesPortfolio.Arrow_left_placer}>
+          <div className={stylesPortfolio.arrowleft}>
+            <IoIosArrowBack className={stylesPortfolio.arrow} onClick={() => handleClick("left")}/>
+          </div>
+        </div>
+
+        <div className={stylesPortfolio.Arrow_right_placer}>
+          <div className={stylesPortfolio.arrowright}>
+            <IoIosArrowForward className={stylesPortfolio.arrow} onClick={() => handleClick()}/>
+          </div>
+        </div>
+      
+    </div>
+  )
+}
+
+export default Portfolio;
+/* <Image
+          src={arrow}
+          className={stylesPortfolio.arrowright}
+          alt="right arrow"
+          objectFit="contain"
+          onClick={() => handleClick()}
+        />*/
+/*
+<Image
           src={arrow}
           className={stylesPortfolio.arrowleft}
           objectFit="contain"
           alt="left arrow"
           onClick={() => handleClick("left")}
         />
-      </div>
-      <div className={stylesPortfolio.Arrow_right_placer}>
-        <Image
-          src={arrow}
-          className={stylesPortfolio.arrowright}
-          alt="right arrow"
-          objectFit="contain"
-          onClick={() => handleClick()}
-        />
-      </div>
-    </div>
-  )
-}
-
-export default Portfolio;
+        <img src={project.thumbnail} />
+        */

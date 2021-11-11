@@ -1,54 +1,67 @@
 import { init } from 'ityped'
-import { useEffect, useRef } from "react"
+import { useEffect, useRef,useState } from "react"
 import styleSkills from "./skills.module.scss"
 import Image from 'next/image'
 import Skills_svg from '../../assets/skillsw.svg'
 
 export default function Skills({ animationOn, setAnimationOn }) {
+    
+    //const [animate, setAnimate] = useState(false);
+    const Lstring = 'Python, Javascript, HTML, CSS, SASS'
+    const Fstring = 'Django, React.js, Node.js, Express.js'
+    const Dstring = 'Nginx, Apache'
+    const DBstring = 'MongoDB, MySQL, PostgreSQL'
+    const Cstring = 'AWS, E3S, AWS, LightSail, Heroku'
+
     const languages = useRef();
     useEffect(() => {
         init(languages.current, {
-            showCursor: true,
+            showCursor: false,
             backDelay: 1500,
             backSpeed: 60,
-            strings: ['Python', 'Javascript', 'HTML', 'CSS', 'SASS']
+            loop: true,
+            strings: [Lstring],
         })
     }, [])
 
     const frameworks = useRef();
     useEffect(() => {
         init(frameworks.current, {
-            showCursor: true,
+            showCursor: false,
             backDelay: 1500,
             backSpeed: 60,
-            strings: ['Django', 'React.js', 'Node.js', 'Express.js']
+            loop: true,
+            strings: [Fstring],
         })
     }, [])
     const Deployment = useRef();
     useEffect(() => {
         init(Deployment.current, {
-            showCursor: true,
+            showCursor: false,
             backDelay: 1500,
             backSpeed: 60,
-            strings: ['Nginx', 'Apache']
+            loop: true,
+            strings: [Dstring]
         })
     }, [])
     const Database = useRef();
     useEffect(() => {
         init(Database.current, {
-            showCursor: true,
+            showCursor: false,
             backDelay: 1500,
             backSpeed: 60,
-            strings: ['MongoDB', 'MySQL', 'PostgreSQL']
+            loop: true,
+            strings: [DBstring]
         })
     }, [])
     const Cloud = useRef();
     useEffect(() => {
         init(Cloud.current, {
-            showCursor: true,
+            showCursor: false,
             backDelay: 1500,
             backSpeed: 60,
-            strings: ['AWS E3S', 'AWS LightSail', 'Heroku']
+            loop: true,
+            strings: [Cstring],
         })
     }, [])
     return (
@@ -77,7 +90,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <h2>Languages</h2>
                             </div>
                             <div className={styleSkills.span_Center}>
-                                <span >Python,Javascript,HTML,CSS,SASS</span>
+                                <span>{[Lstring]}</span>
                             </div>
                         </div>
                     </div>
@@ -97,7 +110,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <h2>Frameworks</h2>
                             </div>
                             <div className={styleSkills.span_Center}>
-                                <span >Django,React.js,Node.js,Express.js</span>
+                                <span >{[Fstring]}</span>
                             </div>
                         </div>
                     </div>
@@ -117,7 +130,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <h2>Databases</h2>
                             </div>
                             <div className={styleSkills.span_Center}>
-                                <span >MongoDB,MySQL,PostgreSQL</span>
+                                <span>{[DBstring]}</span>
                             </div>
                         </div>
                     </div>
@@ -137,7 +150,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <h2>Deployment</h2>
                             </div>
                             <div className={styleSkills.span_Center}>
-                                <span >Nginx,Apache</span>
+                                <span >{[Dstring]}</span>
                             </div>
                         </div>
                     </div>
@@ -157,7 +170,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <h2>Cloud Services</h2>
                             </div>
                             <div className={styleSkills.span_Center}>
-                                <span>AWS E3S,AWS LightSail,Heroku</span>
+                                <span>{[Cstring]}</span>
                             </div>
                         </div>
                     </div>

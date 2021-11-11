@@ -40,6 +40,7 @@
         padding-right: 5%;
         margin-right: auto;
         margin-left: auto;
+        overflow: hidden;
       }
       .skillsHeader {
         display: flex;
@@ -49,6 +50,7 @@
         @include mobile {
           margin-top: 1%;
           margin-bottom: 2%;
+          overflow: hidden;
         }
 
         h1 {
@@ -56,6 +58,7 @@
           font-weight: 700;
           @include mobile {
             font-size: 2rem;
+            overflow: hidden;
           }
         }
       }
@@ -63,23 +66,33 @@
         display: flex;
         position: relative;
         justify-content: center;
+        @include mobile {
+          overflow: hidden;
+        }
 
         .Animation_control_on {
+          height: 11vh;
+          width: 100%;
           position: absolute;
           justify-content: center;
+          overflow: hidden;
 
           .skillsElement {
             display: flex;
             justify-content: center;
             margin-bottom: 3%;
+            overflow: hidden;
             @include mobile {
-              margin-bottom: 0.5%;
+              margin-bottom: 1.5%;
+              overflow: hidden;
             }
             h2 {
               font-size: 2.5rem;
               font-weight: 500;
+              overflow: hidden;
               @include mobile {
                 font-size: 1.5rem;
+                overflow: hidden;
               }
             }
           }
@@ -89,16 +102,17 @@
             margin-bottom: 5%;
             @include mobile {
               margin-bottom: 0.5%;
+              overflow: hidden;
             }
             span {
               font-size: 1.7rem;
               font-weight: 500;
               @include mobile {
                 font-size: 1rem;
+                overflow: hidden;
               }
             }
           }
-
           &.active {
             opacity: 0;
           }
@@ -112,27 +126,32 @@
             margin-bottom: 3%;
             @include mobile {
               margin-bottom: 0.5%;
+              overflow: hidden;
             }
             h2 {
               font-size: 2.5rem;
               font-weight: 500;
               @include mobile {
                 font-size: 1.5rem;
+                overflow: hidden;
               }
             }
           }
           .span_Center {
+            height: 5vh;
             display: flex;
             justify-content: center;
             margin-bottom: 5%;
             @include mobile {
               margin-bottom: 0.5%;
+              overflow: hidden;
             }
             span {
               font-size: 1.7rem;
               font-weight: 500;
               @include mobile {
                 font-size: 1rem;
+                overflow: hidden;
               }
             }
           }

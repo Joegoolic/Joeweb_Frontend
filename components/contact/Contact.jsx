@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import styleContact from "./contact.module.scss";
 import Image from 'next/image'
 import Contact_svg from '../../assets/shake.svg';
@@ -35,14 +37,17 @@ function Contact() {
     e.preventDefault();
     if (mailerState.name === "") {
       setNoNameError(true)
+      toast.error('You didn\'t tell me your Name!')
     } else if (mailerState.email === "") {
       setWrongEmailError(false)
       setNoNameError(false)
       setNoEmailError(true)
+      toast.error('You didn\'t tell me your Email!')
     } else if (mailerState.message === "") {
       setNoNameError(false)
       setNoEmailError(false)
       setNoMessageError(true)
+      toast.error('You didnt type a message!')
     } else {
       if (ValidateEmail(mailerState.email.toString()) === true) {
         setNoNameError(false)
@@ -50,7 +55,6 @@ function Contact() {
         setNoMessageError(false)
         setWrongEmailError(false)
         setMessage(true)
-        /*const response = */
         Axios.post(`${API_URL}/api/email/`, {
           'Name': mailerState.name,
           'Email': mailerState.email,
@@ -63,8 +67,7 @@ function Contact() {
             }
           }
         )
-          .then(res => console.log(res))
-          .catch(error => console.log("error"))
+          .then(()=>{toast.success('You\'re email has been sent!')})
           .then(() => {
             setMailerState({
               email: "",
@@ -83,33 +86,41 @@ function Contact() {
   return (
     <div className={styleContact.contact} id="contact">
       <div className={styleContact.leftc}>
+        <div className={styleContact.spacer}>
         <Image src={Contact_svg} alt="Two hands shaking in minimalistic art style" />
+        </div>
       </div>
       <div className={styleContact.rightc}>
+        <ToastContainer />
         <form onSubmit={submitEmail}>
           <h2>Contact</h2>
+          {/*}
           <div className={NoNameError ? [styleContact.error_organizer, styleContact.error].join(" ") : styleContact.error_organizer}>
             <h3 className={NoNameError ? [styleContact.Name, styleContact.error].join(" ") : styleContact.Name}>Please Enter a Name</h3>
           </div>
+  */}
           <input className={NoNameError ? [styleContact.Name, styleContact.error].join(" ") : styleContact.Name}
             placeholder="Name"
             onChange={handleStateChange}
             name="name"
             value={mailerState.name}
           />
+          {/*}
           <div className={styleContact.error_organizer}>
             <h3 className={NoEmailError ? [styleContact.Email, styleContact.error].join(" ") : styleContact.Email}> Please Enter an Email</h3>
             <h3 className={WrongEmailError ? [styleContact.Email, styleContact.error].join(" ") : styleContact.Email}> Please Enter a Valid Email</h3>
           </div>
+  */}
           <input className={NoEmailError || WrongEmailError ? [styleContact.Email, styleContact.error].join(" ") : styleContact.Email}
             placeholder="Email"
             onChange={handleStateChange}
             name="email"
             value={mailerState.email}
           />
-          <div className={styleContact.error_organizer}>
+          
+          {/* <div className={styleContact.error_organizer}>
             <h3 className={NoMessageError ? [styleContact.Message, styleContact.error].join(" ") : styleContact.Message}>Please Enter a Message </h3>
-          </div>
+          </div> */}
           <textarea className={NoMessageError ? [styleContact.Message, styleContact.error].join(" ") : styleContact.Message}
             style={{ minHeight: "200px" }}
             placeholder="Message"
@@ -118,7 +129,6 @@ function Contact() {
             value={mailerState.message}
           />
           <button>Send Email</button>
-          {message && <span>Thank you! I'll reply ASAP</span>}
           
         </form>
       </div>

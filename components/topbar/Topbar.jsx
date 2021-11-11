@@ -13,12 +13,12 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
                     <a href="#intro" className={stylestopbar.logo}>Joseph Goolic</a>
                     <div className={stylestopbar.itemContainer}>
                         <Person className={stylestopbar.icon} />
-                        <span>+347 410 2593</span>
+                        <span>Give Me A Call</span>
                     </div>
                     <a href="#contact">
                         <div className={stylestopbar.itemContainer}>
                             <Mail className={stylestopbar.icon} />
-                            <span><Hover /></span>
+                            <span>Send Me An Email</span>
                         </div>
                     </a>
                     <div className={stylestopbar.itemContainer}>
@@ -47,3 +47,5 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
     );
 }
 
+
+/*<span><Hover /></span>*/
