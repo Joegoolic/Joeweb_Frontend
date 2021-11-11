@@ -14,7 +14,7 @@ export default function Intro() {
                     <h1 className={stylesintro.intro_statement_one}>Hey! I'm Joseph Goolic</h1>
                     <h1 className={stylesintro.intro_statement_two}>Frontend Developer</h1>
                     <h3 className={stylesintro.intro_statement_three}>I am looking for a remote position working with React/Next.js to 
-                        Beautiful,Responsive and Interactive Websites</h3>
+                        Develop Elegant, Responsive and Interactive Websites</h3>
                 </div>
             </div>
             <div className={stylesintro.rightI}>
