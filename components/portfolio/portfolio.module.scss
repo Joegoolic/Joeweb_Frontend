@@ -159,6 +159,10 @@
             justify-content: center;
             margin: 5%;
             overflow: hidden;
+            @include HD {
+              margin: 1%;
+              font-size: 0.9rem;
+            }
             @include mobile {
               display: none;
             }

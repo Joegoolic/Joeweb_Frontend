@@ -18,7 +18,7 @@ function Home(projects) {
         <div>
             <Head>
                 <meta charSet="utf-8" />
-                <link rel="icon" type = "image/svg" sizes = "32x32" href='/jg.svg' />
+                <link rel="icon" type = "image/svg" sizes = "32x32" href='./jg.svg' />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="theme-color" content="#000000" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
