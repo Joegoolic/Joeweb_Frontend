@@ -9,9 +9,15 @@ $Grey: rgb(119, 119, 119);
 
 /* Screen Sizes */
 $Phone_width: 768px;
+$HD_width: 1366px;
 $Phone_height_xs: 700px;
 $Phone_height_s: 800px;
 $Phone_height_m: 1000px;
+@mixin HD {
+  @media (max-width: #{$HD_width}) {
+    @content;
+  }
+}
 @mixin mobile {
   @media (max-width: #{$Phone_width}) {
     @content;
