@@ -5,9 +5,11 @@ import Link from 'next/link'
 
 function Portfolio({ projects }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const status = "Live"
 
   const handleClick = (way) => {
     way === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : projects.projects.length - 1) : setCurrentSlide(currentSlide < projects.projects.length - 1 ? currentSlide + 1 : 0);
+    
   };
   return (
     <div className={stylesPortfolio.portfolio} id="portfolio">
@@ -19,6 +21,13 @@ function Portfolio({ projects }) {
             <div className={stylesPortfolio.container} key={project.id}>
               <div className={stylesPortfolio.item}>
                   <div className={stylesPortfolio.topContainer}>
+                    <div className={stylesPortfolio.flex_item}>
+                      {(status === 'Live')?
+                      <span className={stylesPortfolio.dot_live}></span>
+                      :
+                      <span className={stylesPortfolio.dot_github}><h3>G</h3></span>
+                      }
+                    </div>
                     <div className={stylesPortfolio.imgContainer}>
                       <Link href={project.link}>
                         <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
@@ -63,5 +72,4 @@ function Portfolio({ projects }) {
     </div>
   )
 }
-
 export default Portfolio;

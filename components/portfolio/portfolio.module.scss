@@ -15,7 +15,7 @@
   .slider {
     left: 0;
     display: flex;
-    height: 80vh;
+    height: calc(100vh - (70px + 10vh));
     position: absolute;
     transition: all 0.8s ease-out;
     @include mobile {
@@ -31,6 +31,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      height: calc(100vh - (70px + 10vh));
       @include mobile {
         margin-top: 10vh;
         margin-bottom: 10vh;
@@ -64,25 +65,79 @@
           scroll-snap-align: end;
         }
         .topContainer {
-          flex: 60%;
           display: flex;
-          flex-direction: column;
-          align-items: center;
+          flex-direction: row;
           @include mobile {
             display: none;
           }
+          .flex_item {
+            flex: 2%;
+            padding: 2%;
+            justify-content: center;
+            @include HD {
+              padding: 2%;
+            }
+            .dot_live {
+              display: flex;
+              height: 25px;
+              width: 25px;
+              background-color: #34b445;
+              border-radius: 50%;
+              justify-content: center;
+              box-shadow: 0 0 0 0 #34b445;
+              transform: scale(1);
+              animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+              0% {
+                transform: scale(0.65);
+                box-shadow: 0 0 0 0 hsla(128, 55%, 45%, 0.7);
+              }
+
+              70% {
+                transform: scale(0.8);
+                box-shadow: 0 0 0 10px hsla(128, 55%, 45%, 0.4);
+              }
+
+              100% {
+                transform: scale(0.65);
+                box-shadow: 0 0 0 0 hsla(128, 55%, 45%, 0.7);
+              }
+            }
+
+            .dot_github {
+              display: flex;
+              height: 25px;
+              width: 25px;
+              background-color: #222020;
+              border-radius: 50%;
+              justify-content: center;
+              h3 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: White;
+              }
+            }
+          }
           .imgContainer {
-            margin-top: 2%;
-            width: 75%;
-            border-radius: 10px;
-            border: solid 1px #000000;
-            height: auto;
+            padding: 1%;
+            flex: 98%;
             display: flex;
-            align-items: center;
-            overflow: hidden;
-            img {
-              width: 100%;
+            margin: 0.5%;
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            justify-content: center;
+            .Clicker {
+              max-width: 100%;
+              max-height: 100%;
               height: auto;
+              border-radius: 10px;
+              border: solid 1px #000000;
+              img {
+                object-fit: contain;
+              }
             }
           }
         }
@@ -147,6 +202,7 @@
             text-align: center;
             justify-content: center;
             overflow: hidden;
+            word-wrap: break-word;
             p {
               font-family: "Space Grotesk";
               line-height: 1.6;
@@ -159,6 +215,7 @@
             justify-content: center;
             margin: 5%;
             overflow: hidden;
+            word-wrap: break-word;
             @include HD {
               margin: 1%;
               font-size: 0.9rem;
@@ -203,14 +260,12 @@
     left: 3vw;
     height: 20vh;
     align-items: center;
-    //justify-content: center;
     overflow-x: hidden;
     overflow-y: hidden;
     .arrowleft {
       cursor: pointer;
       .arrow {
         height: auto;
-        //height: 5rem;
         width: 7vw;
       }
     }

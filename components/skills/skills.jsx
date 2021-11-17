@@ -2,7 +2,9 @@ import { init } from 'ityped'
 import { useEffect, useRef} from "react"
 import styleSkills from "./skills.module.scss"
 import Image from 'next/image'
-import Skills_svg from '../../assets/skills.svg'
+//import Skills_svg from '../../assets/skills.svg'
+import Head_svg from '../../assets/Head.svg'
+import Gear_svg from '../../assets/Gear.svg'
 
 export default function Skills({ animationOn, setAnimationOn }) {
 
@@ -182,8 +184,17 @@ export default function Skills({ animationOn, setAnimationOn }) {
                         </div>
                     </div>
                 </div>
+                {/*
                 <div className={styleSkills.skills_image_container}>
                     <Image src={Skills_svg} alt="Art work of a person with gear in the position of the brain" />
+                </div>*/}
+                <div className={styleSkills.skills_image_container}>
+                     <div className={styleSkills.Head}>
+                        <Image src={Head_svg} alt="Art work of a person with gear in the position of the brain" />
+                    </div>
+                    <div className={styleSkills.Gear}>
+                        <Image className = {styleSkills.GearImage}src={Gear_svg} alt="Art work of a person with gear in the position of the brain" />
+                    </div>
                 </div>
             </div>
         </div>
