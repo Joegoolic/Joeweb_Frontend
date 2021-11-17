@@ -9,12 +9,21 @@ $Grey: rgb(119, 119, 119);
 
 /* Screen Sizes */
 $Phone_width: 768px;
+$FHD_width: 1920px;
+$FHD_height: 1080px;
 $HD_width: 1366px;
+$HD_height: 768px;
 $Phone_height_xs: 700px;
 $Phone_height_s: 800px;
 $Phone_height_m: 1000px;
+
+@mixin FHD {
+  @media screen and (max-width: #{$FHD_width}) and (max-height: #{$FHD_height}) {
+    @content;
+  }
+}
 @mixin HD {
-  @media (max-width: #{$HD_width}) {
+  @media screen and (max-width: #{$HD_width}),(max-height: #{$HD_height}) {
     @content;
   }
 }

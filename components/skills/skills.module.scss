@@ -240,7 +240,7 @@
           overflow: hidden;
         }
         @include HD {
-          margin-top: calc(100vh - 95vh);
+          margin-top: calc(100vh - 99vh);
           overflow: hidden;
         }
 
@@ -263,8 +263,13 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            @include mobile {
+            @include HD {
+              width: 150px;
+              height: 40px;
               overflow: hidden;
+              font-size: large;
+            }
+            @include mobile {
               padding: 6% 5%;
               overflow: hidden;
               font-size: large;
@@ -295,12 +300,16 @@
             cursor: pointer;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden;
-            overflow-y: hidden;
+            overflow: hidden;
+            @include HD {
+              width: 150px;
+              height: 30px;
+              overflow: hidden;
+              font-size: large;
+            }
             @include mobile {
               padding: 6% 5%;
-              overflow-x: hidden;
-              overflow-y: hidden;
+              overflow: hidden;
               font-size: large;
             }
 
@@ -320,9 +329,6 @@
         display: none;
       }
       flex: 25%;
-      //align-self: flex-end;
-      //margin-top: 50%;
-      //display: grid;
       display: inline-grid;
       grid-template-columns: 25% 25% 25% 25%;
       grid-template-rows: 25% 25% 25% 25%;
@@ -349,6 +355,10 @@
       img {
         width: 100%;
         height: 100%;
+        @include HD {
+          width: 80%;
+          height: 80%;
+        }
       }
     }
   }
