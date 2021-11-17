@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Head from 'next/head';
 import Topbar from "../components/topbar/Topbar";
 import Intro from "../components/intro/Intro";
@@ -7,7 +6,6 @@ import Portfolio from "../components/portfolio/Portfolio";
 import Contact from "../components/contact/Contact";
 import Menu from "../components/menu/Menu";
 import stylesapp from "./app.module.scss";
-import JG from '../public/JG.svg'
 import { useState } from "react";
 import { API_URL } from "../config/index";
 
@@ -18,7 +16,9 @@ function Home(projects) {
         <div>
             <Head>
                 <meta charSet="utf-8" />
-                <link rel="icon" type = "image/svg" sizes = "32x32" href='./jg.svg' />
+                <link rel="apple-touch-icon" sizes="180x180" href="/image/jg.svg" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/image/jg.svg"/>
+                <link rel="icon" type="image/png" sizes="16x16" href="/image/jg.svg"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="theme-color" content="#000000" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />

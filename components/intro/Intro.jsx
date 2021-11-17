@@ -2,8 +2,8 @@ import stylesintro from './intro.module.scss'
 import Image from 'next/image'
 import JG_white from '../../assets/JG_white.svg'
 import JEG from '../../assets/JEG.jpeg'
-export default function Intro() {
 
+export default function Intro() {
     return (
         <div className={stylesintro.intro} id="intro">
             <div className={stylesintro.leftI}>

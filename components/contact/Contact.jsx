@@ -129,7 +129,7 @@ function Contact() {
             value={mailerState.message}
           />
           <button>Send Email</button>
-          
+          <button><a href="JosephGoolicResume2021.pdf" target="_blank" rel="noreferrer">Download My Resume</a></button>
         </form>
       </div>
     </div>
@@ -137,4 +137,4 @@ function Contact() {
 }
 
 export default Contact;
-/*<button><a href="" target="_blank" rel="noreferrer">Download My Resume</a></button>*/
+//

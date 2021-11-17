@@ -2,8 +2,6 @@ import { useState } from "react";
 import stylesPortfolio from "./portfolio.module.scss";
 import { IoIosArrowForward, IoIosArrowBack} from "react-icons/io";
 import Link from 'next/link'
-import Image from 'next/image'
-import arrow from '../../assets/arrow.svg'
 
 function Portfolio({ projects }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -67,20 +65,3 @@ function Portfolio({ projects }) {
 }
 
 export default Portfolio;
-/* <Image
-          src={arrow}
-          className={stylesPortfolio.arrowright}
-          alt="right arrow"
-          objectFit="contain"
-          onClick={() => handleClick()}
-        />*/
-/*
-<Image
-          src={arrow}
-          className={stylesPortfolio.arrowleft}
-          objectFit="contain"
-          alt="left arrow"
-          onClick={() => handleClick("left")}
-        />
-        <img src={project.thumbnail} />
-        */

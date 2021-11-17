@@ -120,6 +120,7 @@
       }
 
       button {
+        display: flex;
         width: auto;
         height: auto;
         color: white;
@@ -130,12 +131,12 @@
         cursor: pointer;
         align-items: center;
         justify-content: center;
-        padding: 1%;
-        padding-left: 2%;
-        padding-right: 2%;
+        //padding: 1%;
+        //padding-left: 2%;
+        //padding-right: 2%;
+        padding: 1.5%;
         overflow-x: hidden;
         overflow-y: hidden;
-        margin-bottom: 1%;
         @include h_s {
           padding-left: 4%;
           padding-right: 4%;

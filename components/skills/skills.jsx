@@ -1,12 +1,11 @@
 import { init } from 'ityped'
-import { useEffect, useRef,useState } from "react"
+import { useEffect, useRef} from "react"
 import styleSkills from "./skills.module.scss"
 import Image from 'next/image'
-import Skills_svg from '../../assets/skillsw.svg'
+import Skills_svg from '../../assets/skills.svg'
 
 export default function Skills({ animationOn, setAnimationOn }) {
-    
-    //const [animate, setAnimate] = useState(false);
+
     const Lstring = 'Python, Javascript, HTML, CSS, SASS'
     const Fstring = 'Django, React.js, Node.js, Express.js'
     const Dstring = 'Nginx, Apache'
