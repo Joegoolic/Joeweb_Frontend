@@ -16,9 +16,9 @@ function Home(projects) {
         <div>
             <Head>
                 <meta charSet="utf-8" />
-                <link rel="apple-touch-icon" sizes="180x180" href="/image/jg.svg" />
-                <link rel="icon" type="image/png" sizes="32x32" href="/image/jg.svg"/>
-                <link rel="icon" type="image/png" sizes="16x16" href="/image/jg.svg"/>
+                <link rel="apple-touch-icon" sizes="180x180" href="/image/JGFavo.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/image/JGFavo.png"/>
+                <link rel="icon" type="image/png" sizes="16x16" href="/image/JGFavo.png"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="theme-color" content="#000000" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
