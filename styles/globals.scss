@@ -4,7 +4,7 @@
   margin: 0;
   font-family: "Oxygen", sans-serif;
   overflow-x: hidden;
-  @include mobile {
+  @include Tablet_Mobile {
     overflow-x: auto;
   }
 }

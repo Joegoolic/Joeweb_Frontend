@@ -7,7 +7,8 @@
   justify-content: center;
   position: relative;
   overflow-y: hidden;
-  @include mobile {
+
+  @include Tablet_Mobile {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
   }
@@ -18,21 +19,23 @@
     height: calc(100vh - (70px + 10vh));
     position: absolute;
     transition: all 0.8s ease-out;
-    @include mobile {
+
+    @include Tablet_Mobile {
       height: 100vh;
       justify-content: center;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
     }
+
     .container {
       width: 100vw;
-      max-width: 100vw;
       display: flex;
       align-items: center;
       justify-content: center;
       height: calc(100vh - (70px + 10vh));
-      @include mobile {
+
+      @include Tablet_Mobile {
         margin-top: 10vh;
         margin-bottom: 10vh;
         width: 90vw;
@@ -41,7 +44,6 @@
         height: 80vh;
         align-items: center;
         justify-content: center;
-
         &::-webkit-scrollbar {
           display: none;
         }
@@ -55,85 +57,33 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-
-        @include mobile {
-          width: 90%;
-          height: 90%;
+        justify-content: baseline;
+        overflow: hidden;
+        @include Tablet_Mobile {
+          width: 95%;
+          height: 95%;
           margin-bottom: 1.2%;
           margin-top: 1.2%;
           scroll-snap-align: end;
         }
         .topContainer {
+          flex: 0 1 auto;
+          margin: 0.5%;
+          width: 100%;
           display: flex;
           flex-direction: row;
-          @include mobile {
-            display: none;
-          }
-          .flex_item {
-            flex: 2%;
-            padding: 2%;
-            justify-content: center;
-            @include HD {
-              padding: 2%;
-            }
-            .dot_live {
-              display: flex;
-              height: 25px;
-              width: 25px;
-              background-color: #34b445;
-              border-radius: 50%;
-              justify-content: center;
-              box-shadow: 0 0 0 0 #34b445;
-              transform: scale(1);
-              animation: pulse 2s infinite;
-            }
-            @keyframes pulse {
-              0% {
-                transform: scale(0.65);
-                box-shadow: 0 0 0 0 hsla(128, 55%, 45%, 0.7);
-              }
 
-              70% {
-                transform: scale(0.8);
-                box-shadow: 0 0 0 10px hsla(128, 55%, 45%, 0.4);
-              }
-
-              100% {
-                transform: scale(0.65);
-                box-shadow: 0 0 0 0 hsla(128, 55%, 45%, 0.7);
-              }
-            }
-
-            .dot_github {
-              display: flex;
-              height: 25px;
-              width: 25px;
-              background-color: #222020;
-              border-radius: 50%;
-              justify-content: center;
-              h3 {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: White;
-              }
-            }
-          }
           .imgContainer {
-            padding: 1%;
-            flex: 98%;
+            flex: auto;
             display: flex;
             margin: 0.5%;
-            max-width: 100%;
-            max-height: 100%;
             height: auto;
             justify-content: center;
             .Clicker {
               max-width: 100%;
               max-height: 100%;
               height: auto;
-              border-radius: 10px;
+              border-radius: 3%;
               border: solid 1px #000000;
               img {
                 object-fit: contain;
@@ -142,232 +92,174 @@
           }
         }
         .MidContainer {
-          flex: 8%;
+          flex: 1 1 auto;
           display: flex;
           flex-direction: row;
-          width: 100%;
-          @include mobile {
-            flex: 25%;
+          width: 60vw;
+          min-height: fit-content;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          @include Tablet_Mobile {
+            flex: 0.25 1 auto;
+            width: 80vw;
           }
-          .grouper {
+          .imgContainer {
+            max-width: 4vw;
+            height: auto;
+            border-radius: 50%;
+            background-color: #a9c2e3;
+            overflow: hidden;
+            @include Tablet_Mobile {
+              min-width: 10vw;
+            }
+          }
+          .HeaderContainer {
+            margin: 0 1%;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            height: 100%;
-            @include mobile {
-              height: 100%;
+          }
+          .online {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 3.5vw;
+            min-height: 100%;
+            @include Tablet_Mobile {
+              width: 10vw;
             }
-            .imgContainer {
-              margin-left: 5%;
-              margin-right: 5%;
+            .dot_live {
               display: flex;
-              align-items: center;
-              width: auto;
-              height: 100%;
+              height: 25px;
+              width: 25px;
+              background-color: #34b445;
               border-radius: 50%;
-              background-color: #a9c2e3;
-              overflow: hidden;
-              .img {
-                height: 100%;
-                width: auto;
-                @include mobile {
-                  width: auto;
-                  height: 100%;
-                }
+              box-shadow: 0 0 0 0 #34b445;
+              transform: scale(1);
+              animation: pulse 2s infinite;
+              @include HD {
+                height: 15px;
+                width: 15px;
               }
-              @include mobile {
-                width: 4rem;
-                height: 4rem;
-                overflow-y: hidden;
+              @include Tablet_Mobile {
+                height: 15px;
+                width: 15px;
               }
             }
-            .HeaderContainer {
-              width: 80%;
+            .dot_sizer {
+              min-height: 35px;
+            }
+            .dot_github {
               display: flex;
-              align-items: center;
+              height: 25px;
+              width: 25px;
+              background-color: #222020;
+              border-radius: 50%;
+              justify-content: center;
             }
           }
         }
-        .bottomContainer {
-          flex: 32%;
+      }
+      .bottomContainer {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        .description {
+          margin: 1%;
           display: flex;
-          flex-direction: column;
-          @include mobile {
-            flex: 75%;
-          }
-          .description {
-            margin: 1%;
-            display: flex;
-            text-align: center;
-            justify-content: center;
+          text-align: center;
+          justify-content: center;
+          overflow: hidden;
+          word-wrap: break-word;
+          p {
+            font-family: "Space Grotesk";
+            line-height: 1.6;
+            font-size: 1.2rem;
             overflow: hidden;
-            word-wrap: break-word;
-            p {
-              font-family: "Space Grotesk";
-              line-height: 1.6;
-              overflow: hidden;
-            }
           }
-          .techstack {
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            margin: 5%;
+        }
+        .techstack {
+          display: flex;
+          text-align: center;
+          justify-content: center;
+          word-wrap: break-word;
+          overflow: hidden;
+          @include Tablet {
+            margin-top: 1%;
+          }
+          @include Mobile {
+            display: none;
+          }
+          p {
+            font-family: "Space Mono";
+            word-spacing: 1.5;
+            font-weight: bold;
+            font-size: 1.1rem;
             overflow: hidden;
-            word-wrap: break-word;
-            @include HD {
-              margin: 1%;
-              font-size: 0.9rem;
-            }
-            @include mobile {
-              display: none;
-            }
-            p {
-              font-family: "Space Mono";
-              word-spacing: 1.5;
-              overflow: hidden;
-            }
           }
         }
       }
-    }
-  }
-
-  .Arrow_right_placer {
-    position: absolute;
-    display: flex;
-    left: 90vw;
-    height: 20vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    align-items: center;
-    .arrowright {
-      cursor: pointer;
-      .arrow {
-        height: auto;
-        width: 7vw;
-      }
-    }
-    @include mobile {
-      display: none;
-    }
-  }
-
-  .Arrow_left_placer {
-    position: absolute;
-    display: flex;
-    left: 3vw;
-    height: 20vh;
-    align-items: center;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    .arrowleft {
-      cursor: pointer;
-      .arrow {
-        height: auto;
-        width: 7vw;
-      }
-    }
-    @include mobile {
-      display: none;
     }
   }
 }
 
-/* .Arrow_right_placer {
-    flex: 20%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    .arrowright {
-      cursor: pointer;
-      .arrow {
-        height: 200px;
-        width: 300px;
-      }
-    }
-    @include mobile {
-      display: none;
+.Arrow_right_placer {
+  position: absolute;
+  display: flex;
+  left: 90vw;
+  height: 20vh;
+  overflow: hidden;
+  align-items: center;
+  .arrowright {
+    cursor: pointer;
+    .arrow {
+      height: auto;
+      width: 7vw;
     }
   }
-} 
-.bottom {
-        flex: 50%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        .Clicker:hover {
-          cursor: pointer;
-        }
-        img {
-          width: 95%;
-          transform: rotate(-10deg);
-        }
-      }
+  @include Tablet {
+    display: none;
+  }
+  @include Mobile {
+    display: none;
+  }
+}
+
 .Arrow_left_placer {
-    flex: 20%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    .arrowleft {
-      cursor: pointer;
-      .arrow {
-        height: 200px;
-        width: 300px;
-      }
+  position: absolute;
+  display: flex;
+  left: 3vw;
+  height: 20vh;
+  align-items: center;
+  overflow: hidden;
+  .arrowleft {
+    cursor: pointer;
+    .arrow {
+      height: auto;
+      width: 7vw;
     }
-    @include mobile {
-      display: none;
-    }
-    */
-/*
   }
-  p {
-            font-size: 16px;
-            text-align: center;
-            padding-left: 1%;
-            padding-right: 1%;
-            -ms-overflow-style: none; IE and Edge 
-            scrollbar-width: none;
-            @include mobile {
-              display: none;
-            }
-          }
-          p::-webkit-scrollbar {
-            display: none;
-          }
-          span {
-            font-size: 28px;
-            font-weight: 600;
-            text-decoration: underline;
-            cursor: pointer;
-          }
-  */
-/*.imgContainer {
-              width: 50%;
-              height: 25%;
-              border-radius: 50%;
-              background-color: #a9c2e3;
-              display: flex;
-              align-items: center;
-              justify-content: center;
+  @include Tablet {
+    display: none;
+  }
+  @include Mobile {
+    display: none;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.65);
+    box-shadow: 0 0 0 0 hsla(128, 55%, 45%, 0.7);
+  }
 
-              @include mobile {
-                width: 4rem;
-                height: 4rem;
-                overflow-y: hidden;
-              }
-              
+  75% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 10px hsla(128, 55%, 45%, 0.4);
+  }
 
-              img {
-                width: 50%;
-                
-
-                @include mobile {
-                  width: 4rem;
-                }
-              }
-              
-            }
-            */
+  100% {
+    transform: scale(0.65);
+    box-shadow: 0 0 0 0 hsla(128, 55%, 45%, 0.7);
+  }
+}

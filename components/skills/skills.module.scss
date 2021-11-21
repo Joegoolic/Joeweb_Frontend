@@ -13,7 +13,7 @@
     .skills_filler {
       flex: 5%;
       overflow: hidden;
-      @include mobile {
+      @include Tablet_Mobile {
         display: none;
         overflow: hidden;
       }
@@ -38,21 +38,30 @@
       scrollbar-width: none; /* Firefox */
       overflow: hidden;
 
-      @include mobile {
-        margin-top: 1%;
-        margin-bottom: 1%;
-        padding-left: 5%;
-        padding-right: 5%;
-        margin-right: auto;
-        margin-left: auto;
-        overflow: hidden;
-      }
       @include HD {
         height: 80vh;
         margin-top: 1%;
         margin-bottom: 1%;
         padding-left: 7%;
         padding-right: 7%;
+        margin-right: auto;
+        margin-left: auto;
+        overflow: hidden;
+      }
+      @include Tablet {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        padding-left: 10%;
+        padding-right: 10%;
+        margin-right: auto;
+        margin-left: auto;
+        overflow: hidden;
+      }
+      @include Mobile {
+        height: 70vh;
+        margin: 15% 15%;
+        padding-left: 5%;
+        padding-right: 5%;
         margin-right: auto;
         margin-left: auto;
         overflow: hidden;
@@ -69,7 +78,7 @@
           margin-bottom: 2%;
           overflow: hidden;
         }
-        @include mobile {
+        @include Mobile {
           margin-top: 1%;
           margin-bottom: 2%;
           overflow: hidden;
@@ -83,7 +92,7 @@
             font-size: 3rem;
             overflow: hidden;
           }
-          @include mobile {
+          @include Mobile {
             font-size: 2rem;
             overflow: hidden;
           }
@@ -95,7 +104,7 @@
         justify-content: center;
         overflow: hidden;
 
-        @include mobile {
+        @include Mobile {
           overflow: hidden;
         }
 
@@ -115,7 +124,7 @@
               margin-bottom: 2%;
               overflow: hidden;
             }
-            @include mobile {
+            @include Mobile {
               margin-bottom: 1.5%;
               overflow: hidden;
             }
@@ -128,7 +137,7 @@
                 font-size: 2rem;
                 overflow: hidden;
               }
-              @include mobile {
+              @include Mobile {
                 font-size: 1.5rem;
                 overflow: hidden;
               }
@@ -144,7 +153,7 @@
               margin-bottom: 3%;
               overflow: hidden;
             }
-            @include mobile {
+            @include Mobile {
               margin-bottom: 0.5%;
               overflow: hidden;
             }
@@ -156,7 +165,7 @@
                 font-size: 1.3rem;
                 overflow: hidden;
               }
-              @include mobile {
+              @include Mobile {
                 font-size: 1rem;
                 overflow: hidden;
               }
@@ -180,7 +189,7 @@
               margin-bottom: 2%;
               overflow: hidden;
             }
-            @include mobile {
+            @include Mobile {
               margin-bottom: 1.5%;
               overflow: hidden;
             }
@@ -192,7 +201,7 @@
                 font-size: 2rem;
                 overflow: hidden;
               }
-              @include mobile {
+              @include Mobile {
                 font-size: 1.5rem;
                 overflow: hidden;
               }
@@ -208,7 +217,7 @@
               margin-bottom: 3%;
               overflow: hidden;
             }
-            @include mobile {
+            @include Mobile {
               margin-bottom: 0.5%;
               overflow: hidden;
             }
@@ -220,7 +229,7 @@
                 font-size: 1.3rem;
                 overflow: hidden;
               }
-              @include mobile {
+              @include Mobile {
                 font-size: 1rem;
                 overflow: hidden;
               }
@@ -233,14 +242,19 @@
         }
       }
       .ButtonPosition {
-        margin-top: 2%;
+        margin: 0.5%;
         overflow: hidden;
-        @include mobile {
-          margin-top: calc(100vh - 90vh);
-          overflow: hidden;
-        }
+
         @include HD {
           margin-top: calc(100vh - 99vh);
+          overflow: hidden;
+        }
+        @include Tablet {
+          margin-top: calc(100vh - 99vh);
+          overflow: hidden;
+        }
+        @include Mobile {
+          margin-top: calc(100vh - 95vh);
           overflow: hidden;
         }
 
@@ -252,10 +266,12 @@
           button {
             position: absolute;
             display: flex;
-            width: 150px;
-            height: 30px;
+            width: 10vw;
+            height: 5vh;
             color: white;
-            background-color: rgb(80, 79, 79);
+            font-size: 1.2rem;
+            padding: 1.5% 2%;
+            background-color: $Grey;
             border: none;
             border-radius: 1rem;
             font-weight: 500;
@@ -264,15 +280,21 @@
             justify-content: center;
             overflow: hidden;
             @include HD {
-              width: 150px;
-              height: 40px;
+              width: 10vw;
+              height: 7vh;
               overflow: hidden;
-              font-size: large;
             }
-            @include mobile {
-              padding: 6% 5%;
+            @include Tablet {
+              font-size: 1.4rem;
+              width: 20vw;
+              height: 7vh;
               overflow: hidden;
-              font-size: large;
+            }
+            @include Mobile {
+              font-size: 1rem;
+              width: 30vw;
+              height: 7vh;
+              overflow: hidden;
             }
 
             &:focus {
@@ -290,10 +312,12 @@
           button {
             position: absolute;
             display: flex;
-            width: 150px;
-            height: 30px;
+            width: 10vw;
+            height: 5vh;
             color: white;
-            background-color: rgb(80, 79, 79);
+            font-size: 1.2rem;
+            padding: 1.5% 2%;
+            background-color: $Grey;
             border: none;
             border-radius: 1rem;
             font-weight: 500;
@@ -302,15 +326,21 @@
             justify-content: center;
             overflow: hidden;
             @include HD {
-              width: 150px;
-              height: 30px;
+              width: 10vw;
+              height: 7vh;
               overflow: hidden;
-              font-size: large;
             }
-            @include mobile {
-              padding: 6% 5%;
+            @include Tablet {
+              font-size: 1.4rem;
+              width: 20vw;
+              height: 7vh;
               overflow: hidden;
-              font-size: large;
+            }
+            @include Mobile {
+              font-size: 1rem;
+              width: 40vw;
+              height: 7vh;
+              overflow: hidden;
             }
 
             &:focus {
@@ -325,7 +355,7 @@
     }
 
     .skills_image_container {
-      @include mobile {
+      @include Tablet_Mobile {
         display: none;
       }
       flex: 25%;

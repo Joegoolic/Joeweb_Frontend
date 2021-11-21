@@ -5,45 +5,47 @@ $Indigo_two: #2c3b5c;
 $Blueberry: #4d648d;
 $Periwinkle: #d0e1f9;
 $Text: whitesmoke;
+$ButtonText: rgba(0, 3, 168, 0.897);
 $Grey: rgb(119, 119, 119);
 
 /* Screen Sizes */
-$Phone_width: 768px;
-$FHD_width: 1920px;
-$FHD_height: 1080px;
-$HD_width: 1366px;
-$HD_height: 768px;
-$Phone_height_xs: 700px;
-$Phone_height_s: 800px;
-$Phone_height_m: 1000px;
+$UHD_width_max: 4000px;
+$UHD_width_min: 1921px;
+
+$FHD_width_max: 1920px;
+$FHD_width_min: 1367px;
+
+$HD_width_max: 1366px;
+$HD_width_min: 1025px;
+
+$Tablet_width_max: 1024px;
+$Tablet_width_min: 500px;
+
+$Mobile_width_max: 499px;
+$Mobile_width_min: 1px;
 
 @mixin FHD {
-  @media screen and (max-width: #{$FHD_width}) and (max-height: #{$FHD_height}) {
+  @media screen and (max-width: #{$FHD_width_max})and(min-width: #{$FHD_height_min}) {
     @content;
   }
 }
 @mixin HD {
-  @media screen and (max-width: #{$HD_width}),(max-height: #{$HD_height}) {
+  @media screen and (max-width: #{$HD_width_max})and(min-width: #{$HD_width_min}) {
     @content;
   }
 }
-@mixin mobile {
-  @media (max-width: #{$Phone_width}) {
+@mixin Tablet {
+  @media screen and (max-width: #{$Tablet_width_max})and(min-width: #{$Tablet_width_min}) {
     @content;
   }
 }
-@mixin h_s {
-  @media (max-height: #{$Phone_height_xs}) {
+@mixin Mobile {
+  @media screen and (max-width: #{$Mobile_width_max}) and (min-width: #{$Mobile_width_min}) {
     @content;
   }
 }
-@mixin mobile_height_s {
-  @media (max-height: #{$Phone_height_s}) {
-    @content;
-  }
-}
-@mixin mobile_height_m {
-  @media (max-height: #{$Phone_height_m}) {
+@mixin Tablet_Mobile {
+  @media screen and (max-width: #{$Tablet_width_max})and (min-width: #{$Mobile_width_min}) {
     @content;
   }
 }

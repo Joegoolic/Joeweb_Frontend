@@ -1,0 +1,120 @@
+@import "../../styles/global.module.scss";
+.skills {
+  background-color: $Indigo_two;
+  color: $Midnight;
+  display: flex;
+  overflow: hidden;
+  .skill_container {
+    flex: 0 1 auto;
+    margin: 1% 10%;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-around;
+    align-items: center;
+    .skills_list {
+      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(20, 5%);
+      grid-template-rows: repeat(20, 5%);
+      height: 85vh;
+      width: 60vw;
+      border: black solid 3px;
+      box-shadow: black 2px;
+      border-radius: 20%;
+      background-color: whitesmoke;
+      text-shadow: black 1px;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      overflow: hidden;
+      .skillsHeader {
+        grid-area: 1 /8/ 3/ 14;
+        justify-self: center;
+        align-self: center;
+        font-size: 2rem;
+        font-weight: 700;
+        overflow: hidden;
+      }
+      .skills_position_L {
+        grid-area: 3 /7/ 5/ 15;
+        justify-self: center;
+        align-self: center;
+        overflow: hidden;
+        .Animation_control_on {
+          grid-area: 3 /7/ 5/ 15;
+          justify-self: center;
+          align-self: center;
+          overflow: hidden;
+          &.active {
+            opacity: 0;
+            overflow: hidden;
+          }
+          .skillsElement {
+            grid-area: 3 /7/ 5/ 15;
+            justify-self: center;
+            align-self: center;
+            overflow: hidden;
+            h2 {
+              font-size: 2.5rem;
+              font-weight: 500;
+              overflow: hidden;
+            }
+          }
+          .span_Center {
+            grid-area: 5 /7/ 7/ 15;
+            justify-self: center;
+            align-self: center;
+            overflow: hidden;
+            span {
+              font-size: 1.7rem;
+              font-weight: 500;
+            }
+          }
+        }
+        .Animation_control_off {
+          opacity: 0;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .skills_image_container {
+    flex: 0 1 auto;
+    display: inline-grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: repeat(4 25%);
+    @include Mobile {
+      display: none;
+    }
+    .Head {
+      grid-row-start: 3;
+      grid-row-end: 5;
+      grid-column-start: 2;
+      grid-column-end: 4;
+      overflow: hidden;
+    }
+    .Gear {
+      grid-area: 3/3/4/4;
+      overflow: hidden;
+      .GearImage {
+        animation: spin 4s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      @include HD {
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+}

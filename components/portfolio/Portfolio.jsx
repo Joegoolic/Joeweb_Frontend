@@ -13,21 +13,13 @@ function Portfolio({ projects }) {
   };
   return (
     <div className={stylesPortfolio.portfolio} id="portfolio">
-      <div
-        className={stylesPortfolio.slider}
-        style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
-      >
+      <div className={stylesPortfolio.slider}
+        style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
+
         {projects && projects.projects.map((project) => (
             <div className={stylesPortfolio.container} key={project.id}>
               <div className={stylesPortfolio.item}>
                   <div className={stylesPortfolio.topContainer}>
-                    <div className={stylesPortfolio.flex_item}>
-                      {(status === 'Live')?
-                      <span className={stylesPortfolio.dot_live}></span>
-                      :
-                      <span className={stylesPortfolio.dot_github}><h3>G</h3></span>
-                      }
-                    </div>
                     <div className={stylesPortfolio.imgContainer}>
                       <Link href={project.link}>
                         <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
@@ -37,12 +29,25 @@ function Portfolio({ projects }) {
                     </div>
                   </div>
                 <div className={stylesPortfolio.MidContainer}>
-                  <div className={stylesPortfolio.grouper}>
-                      <img className = {stylesPortfolio.imgContainer}src={project.thumbnail}/>
-                      <div className={stylesPortfolio.HeaderContainer}>
-                        <Link href={project.link}><h2 className={stylesPortfolio.Clicker}>{project.title}</h2></Link>
-                      </div>
+                  <img className = {stylesPortfolio.imgContainer}src={project.thumbnail}/>
+                  <div className={stylesPortfolio.HeaderContainer}>
+                    <Link href={project.link} target="_blank"><h2 className={stylesPortfolio.Clicker}>{project.title}</h2></Link>
+                  </div>
+                  <div className={stylesPortfolio.online}>
+                        {(status === 'Live')?
+                        <>
+                          <span className={stylesPortfolio.dot_live}></span>
+                        </>
+                        :
+                        <>
+                        <h3>On Github</h3>
+                        <span className={stylesPortfolio.dot_github}><h3>G</h3></span>
+                        </>
+                        }
+                    <div className={stylesPortfolio.dot_sizer}>
                     </div>
+                  </div>
+                  
                 </div>
                 <div className={stylesPortfolio.bottomContainer}>
                   <div className={stylesPortfolio.description}>
@@ -55,6 +60,7 @@ function Portfolio({ projects }) {
               </div>
             </div>
         ))}
+
         </div>
 
         <div className={stylesPortfolio.Arrow_left_placer}>

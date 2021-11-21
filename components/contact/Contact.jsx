@@ -6,6 +6,9 @@ import Image from 'next/image'
 import Contact_svg from '../../assets/shake.svg';
 import Axios from "axios";
 import { API_URL } from "../../config/index";
+import { useEffect,useRef } from "react";
+import { motion,AnimatePresence } from "framer-motion"
+
 
 function Contact() {
   const [message, setMessage] = useState(false);
@@ -83,44 +86,74 @@ function Contact() {
       }
     }
   };
+  
+  const containerRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false)
+
+    const callbackFunction = (entries) => {
+      const [entry ]= entries
+      setIsVisible(entry.isIntersecting)
+    }
+    
+    const options ={
+      root: null,
+      rootMargin: '0px',
+      threshold: 1
+    }
+    useEffect(() => {
+      const observer = new IntersectionObserver(callbackFunction, options)
+        if(containerRef.current) observer.observe(containerRef.current)
+        return () => {
+          if(containerRef.current)observer.unobserve(containerRef.current)
+        }
+      },[containerRef,options])
+      
   return (
-    <div className={styleContact.contact} id="contact">
+    <div className={styleContact.contact} ref={containerRef} id="contact">
       <div className={styleContact.leftc}>
-        <div className={styleContact.spacer}>
-        <Image src={Contact_svg} alt="Two hands shaking in minimalistic art style" />
-        </div>
+      <AnimatePresence>
+      {isVisible &&(
+        <motion.div
+                key="form"
+                initial={{ x: 300, opacity: 0,duration:1 }}
+                animate={{ x: 0, opacity: 1,duration:1 }}
+                exit={{ x: 300, opacity: 0,duration:1, animationDelay:0.5 }}
+               >
+      
+        <div className={styleContact.Image_Container}>
+          <Image src={Contact_svg} alt="Two hands shaking in minimalistic art style" />
+        </div>  
+      </motion.div>
+      )}
+      </AnimatePresence>
       </div>
       <div className={styleContact.rightc}>
         <ToastContainer />
-        <form onSubmit={submitEmail}>
+        <AnimatePresence>
+        {isVisible &&(
+        <motion.div
+                key="form"
+                initial={{ x: 300, opacity: 0,duration:1 }}
+                animate={{ x: 0, opacity: 1,duration:1 }}
+                exit={{ x: 300, opacity: 0,duration:1, animationDelay:0.5 }}
+               >
+        <form onSubmit={submitEmail}key="form">
           <h2>Contact</h2>
-          {/*}
-          <div className={NoNameError ? [styleContact.error_organizer, styleContact.error].join(" ") : styleContact.error_organizer}>
-            <h3 className={NoNameError ? [styleContact.Name, styleContact.error].join(" ") : styleContact.Name}>Please Enter a Name</h3>
-          </div>
-  */}
+
           <input className={NoNameError ? [styleContact.Name, styleContact.error].join(" ") : styleContact.Name}
             placeholder="Name"
             onChange={handleStateChange}
             name="name"
             value={mailerState.name}
           />
-          {/*}
-          <div className={styleContact.error_organizer}>
-            <h3 className={NoEmailError ? [styleContact.Email, styleContact.error].join(" ") : styleContact.Email}> Please Enter an Email</h3>
-            <h3 className={WrongEmailError ? [styleContact.Email, styleContact.error].join(" ") : styleContact.Email}> Please Enter a Valid Email</h3>
-          </div>
-  */}
+
           <input className={NoEmailError || WrongEmailError ? [styleContact.Email, styleContact.error].join(" ") : styleContact.Email}
             placeholder="Email"
             onChange={handleStateChange}
             name="email"
             value={mailerState.email}
           />
-          
-          {/* <div className={styleContact.error_organizer}>
-            <h3 className={NoMessageError ? [styleContact.Message, styleContact.error].join(" ") : styleContact.Message}>Please Enter a Message </h3>
-          </div> */}
+
           <textarea className={NoMessageError ? [styleContact.Message, styleContact.error].join(" ") : styleContact.Message}
             style={{ minHeight: "200px" }}
             placeholder="Message"
@@ -131,6 +164,9 @@ function Contact() {
           <button>Send Email</button>
           <button><a href="JosephGoolicResume2021.pdf" target="_blank" rel="noreferrer">Download My Resume</a></button>
         </form>
+        </motion.div>
+        )}
+        </AnimatePresence>
       </div>
     </div>
   );

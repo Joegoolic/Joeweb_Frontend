@@ -1,6 +1,6 @@
 import { init } from 'ityped'
-import { useEffect, useRef} from "react"
-import styleSkills from "./skills.module.scss"
+import { useState,useEffect, useRef} from "react"
+import styleSkills from "./skills2.module.scss"
 import Image from 'next/image'
 import Head_svg from '../../assets/Head.svg'
 import Gear_svg from '../../assets/Gear.svg'
@@ -8,10 +8,30 @@ import Gear_svg from '../../assets/Gear.svg'
 export default function Skills({ animationOn, setAnimationOn }) {
 
     const Lstring = 'Python, Javascript, HTML, CSS, SASS'
-    const Fstring = 'Django, React.js, Node.js, Express.js'
+    const Fstring = 'Django, React.js, Next.js'
     const Dstring = 'Nginx, Apache'
     const DBstring = 'MongoDB, MySQL, PostgreSQL'
     const Cstring = 'AWS, E3S, AWS, LightSail, Heroku'
+    const containerRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false)
+
+    const callbackFunction = (entries) => {
+      const [entry ]= entries
+      setIsVisible(entry.isIntersecting)
+    }
+    
+    const options ={
+      root: null,
+      rootMargin: '0px',
+      threshold: 1
+    }
+    useEffect(() => {
+      const observer = new IntersectionObserver(callbackFunction, options)
+        if(containerRef.current) observer.observe(containerRef.current)
+        return () => {
+          if(containerRef.current)observer.unobserve(containerRef.current)
+        }
+      },[containerRef,options])
 
     const languages = useRef();
     useEffect(() => {
@@ -20,6 +40,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
             backDelay: 1500,
             backSpeed: 60,
             loop: true,
+            disableBackTyping: true,
             strings: [Lstring],
         })
     }, [])
@@ -65,18 +86,15 @@ export default function Skills({ animationOn, setAnimationOn }) {
         })
     }, [])
     return (
-        <div className={styleSkills.skills} id="skills">
-            <div className={styleSkills.skills_Container}>
-                <div className={styleSkills.skills_filler}>
-
-                </div>
+        <div className={styleSkills.skills} ref={containerRef} id="skills">
+            <div className={styleSkills.skill_container}>
                 <div className={styleSkills.skills_list}>
                     <div className={styleSkills.skillsHeader}>
-                        <h1>My Skill Tree</h1>
+                        <h1>Skill Tree</h1>
                     </div>
                     {/*Languages*/}
-                    <div className={styleSkills.skills_position}>
-                        <div className={animationOn ? [styleSkills.Animation_control_on, styleSkills.active].join(" ") : styleSkills.Animation_control_on}/*{"Animation_control_on " + (animationOn && "active")}*/>
+                    <div className={styleSkills.skills_position_L}>
+                        <div className={animationOn ? [styleSkills.Animation_control_on, styleSkills.active].join(" ") : styleSkills.Animation_control_on}>
                             <div className={styleSkills.skillsElement}>
                                 <h2>Languages</h2>
                             </div>
@@ -84,8 +102,8 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <span ref={languages}></span>
                             </div>
                         </div>
-
-                        <div className={animationOn ? [styleSkills.Animation_control_off, styleSkills.active].join(" ") : styleSkills.Animation_control_off}/*[{"Animation_control_off " + (animationOn && "active")}*/>
+                    
+                        <div className={animationOn ? [styleSkills.Animation_control_off, styleSkills.active].join(" ") : styleSkills.Animation_control_off}>
                             <div className={styleSkills.skillsElement}>
                                 <h2>Languages</h2>
                             </div>
@@ -104,7 +122,8 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <span ref={frameworks}></span>
                             </div>
                         </div>
-
+                    </div>
+                    {/*
                         <div className={animationOn ? [styleSkills.Animation_control_off, styleSkills.active].join(" ") : styleSkills.Animation_control_off}>
                             <div className={styleSkills.skillsElement}>
                                 <h2>Frameworks</h2>
@@ -114,6 +133,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                             </div>
                         </div>
                     </div>
+                    */}
                     {/*DataBase*/}
                     <div className={styleSkills.skills_position}>
                         <div className={animationOn ? [styleSkills.Animation_control_on, styleSkills.active].join(" ") : styleSkills.Animation_control_on}>
@@ -124,7 +144,8 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <span ref={Database}></span>
                             </div>
                         </div>
-
+                    </div>
+                    {/*
                         <div className={animationOn ? [styleSkills.Animation_control_off, styleSkills.active].join(" ") : styleSkills.Animation_control_off}>
                             <div className={styleSkills.skillsElement}>
                                 <h2>Databases</h2>
@@ -134,6 +155,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                             </div>
                         </div>
                     </div>
+                    */}
                     {/*Deployment*/}
                     <div className={styleSkills.skills_position}>
                         <div className={animationOn ? [styleSkills.Animation_control_on, styleSkills.active].join(" ") : styleSkills.Animation_control_on}>
@@ -144,7 +166,8 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <span ref={Deployment}></span>
                             </div>
                         </div>
-
+                    </div>
+                    {/*
                         <div className={animationOn ? [styleSkills.Animation_control_off, styleSkills.active].join(" ") : styleSkills.Animation_control_off}>
                             <div className={styleSkills.skillsElement}>
                                 <h2>Deployment</h2>
@@ -154,6 +177,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                             </div>
                         </div>
                     </div>
+                */}
                     {/*Cloud*/}
                     <div className={styleSkills.skills_position}>
                         <div className={animationOn ? [styleSkills.Animation_control_on, styleSkills.active].join(" ") : styleSkills.Animation_control_on}>
@@ -164,7 +188,8 @@ export default function Skills({ animationOn, setAnimationOn }) {
                                 <span ref={Cloud}></span>
                             </div>
                         </div>
-
+                    </div>
+                    {/*
                         <div className={animationOn ? [styleSkills.Animation_control_off, styleSkills.active].join(" ") : styleSkills.Animation_control_off}>
                             <div className={styleSkills.skillsElement}>
                                 <h2>Cloud Services</h2>
@@ -174,6 +199,8 @@ export default function Skills({ animationOn, setAnimationOn }) {
                             </div>
                         </div>
                     </div>
+                    */}
+                    {/*
                     <div className={styleSkills.ButtonPosition}>
                         <div className={animationOn ? [styleSkills.button_center_on, styleSkills.active].join(" ") : styleSkills.button_center_on}>
                             <button onClick={() => setAnimationOn(!animationOn)}>Stop Animation</button>
@@ -182,11 +209,8 @@ export default function Skills({ animationOn, setAnimationOn }) {
                             <button onClick={() => setAnimationOn(!animationOn)}>Start Animation</button>
                         </div>
                     </div>
+                    */}
                 </div>
-                {/*
-                <div className={styleSkills.skills_image_container}>
-                    <Image src={Skills_svg} alt="Art work of a person with gear in the position of the brain" />
-                </div>*/}
                 <div className={styleSkills.skills_image_container}>
                      <div className={styleSkills.Head}>
                         <Image src={Head_svg} alt="Art work of a person with gear in the position of the brain" />
@@ -195,10 +219,7 @@ export default function Skills({ animationOn, setAnimationOn }) {
                         <Image className = {styleSkills.GearImage}src={Gear_svg} alt="Art work of a person with gear in the position of the brain" />
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
     )
 }
-//export default Skills
-/*{"button_center_off " + (animationOn && "active")}>
-{"button_center_on " + (animationOn && "active")}*/

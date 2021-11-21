@@ -1,7 +1,6 @@
 import { Person, Mail } from "@material-ui/icons";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import Hover from "./hover";
 import stylestopbar from "./topbar.module.scss";
 
 

@@ -1,168 +1,155 @@
 @import "../../styles/global.module.scss";
 .contact {
   background-color: $Periwinkle;
-  display: flex;
   color: $Text;
-
-  @include mobile {
+  display: flex;
+  @include Tablet_Mobile {
     flex-direction: column;
-  }
-
-  .leftc {
-    width: 50%;
     overflow: hidden;
-    @include mobile {
-      display: none;
-    }
-    .spacer {
-      margin: 2%;
+  }
+}
+
+.leftc {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  @include Mobile {
+    display: none;
+  }
+  .Image_Container {
+    margin: auto;
+    width: 70%;
+    @include Tablet {
+      width: 40%;
     }
     img {
-      height: 100%;
+      display: flex;
+      width: 100%;
     }
   }
-  .rightc {
-    width: 50%;
+}
+
+.rightc {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  @include Tablet {
+    flex: 2;
+  }
+
+  form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    @include mobile {
-      width: 95%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    justify-content: space-around;
+    border: black 2px solid;
+    border-radius: 1rem;
+    box-shadow: white 2px;
+    height: 70vh;
+    width: 25vw;
+
+    @include Tablet {
+      height: 60vh;
+      width: 60vw;
+    }
+
+    @include Mobile {
+      height: 80vh;
+      width: 90vw;
     }
 
     h2 {
-      font-size: 30px;
       color: black;
-      overflow-x: hidden;
-      overflow-y: hidden;
     }
 
-    form {
-      width: 70%;
-      height: 70%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      border: black 2px solid;
+    input {
+      width: 90%;
+      height: 7%;
+      font-size: 1.2rem;
+      border: none;
+      outline: none;
       border-radius: 1rem;
-      box-shadow: white 2px;
-      overflow-x: hidden;
-      overflow-y: hidden;
-      @include mobile {
-        width: 80%;
-        height: 90%;
-      }
-      @include h_s {
-        height: 95%;
+      text-align: center;
+      margin-top: 1.5%;
+
+      &.error {
+        border: red solid 2px;
       }
 
-      .error_organizer {
-        display: flex;
-        justify-content: center;
-        h3 {
-          position: absolute;
-          opacity: 0;
-          font-weight: 300;
-          font-size: 1.3em;
-          color: red;
-          &.error {
-            opacity: 1;
-          }
-        }
+      @include Tablet {
+        height: 5vh;
       }
-      input {
+
+      @include Mobile {
         width: 90%;
-        height: 7%;
-        font-size: 1rem;
-        border: none;
-        outline: none;
+        height: 8%;
+        font-size: 1.5rem;
         border-radius: 1rem;
-        text-align: center;
-        margin-top: 1.5%;
-        &.error {
-          border: red solid 2px;
-        }
-
-        @include mobile {
-          width: 90%;
-          height: 8%;
-          font-size: 1.5rem;
-          border-radius: 1rem;
-        }
       }
+    }
 
-      textarea {
+    textarea {
+      width: 90%;
+      height: 10%;
+      margin-top: 1.5%;
+      margin-bottom: 1.5%;
+      font-size: 1.2rem;
+      border: none;
+      outline: none;
+      border-radius: 1rem;
+      text-align: center;
+
+      @include Mobile {
         width: 90%;
         height: 10%;
-        margin-top: 1.5%;
-        margin-bottom: 1.5%;
+        font-size: 1.5rem;
+        border-radius: 1rem;
+      }
+    }
+
+    button {
+      display: flex;
+      color: white;
+      background-color: $Grey;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5% 2%;
+      overflow: hidden;
+
+      @include HD {
         font-size: 1rem;
-        border: none;
+      }
+
+      @include Tablet {
+        padding: 3%;
+        font-size: 1.3rem;
+      }
+
+      @include Mobile {
+        padding: 4% 3%;
+        font-size: large;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        overflow: hidden;
+      }
+      &:focus {
         outline: none;
-        border-radius: 1rem;
-        text-align: center;
-
-        @include mobile {
-          width: 90%;
-          height: 10%;
-          font-size: 1.5rem;
-          border-radius: 1rem;
-        }
       }
-
-      button {
-        display: flex;
-        width: auto;
-        height: auto;
-        color: white;
-        background-color: rgb(80, 79, 79);
-        border: none;
-        border-radius: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        //padding: 1%;
-        //padding-left: 2%;
-        //padding-right: 2%;
-        padding: 1.5%;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        @include h_s {
-          padding-left: 4%;
-          padding-right: 4%;
-          align-items: center;
-          justify-content: center;
-        }
-        @include mobile {
-          padding: 6% 5%;
-          align-items: center;
-          justify-content: center;
-          font-size: large;
-        }
-        a {
-          text-decoration: none;
-          color: inherit;
-          overflow-x: hidden;
-          overflow-y: hidden;
-        }
-        &:focus {
-          outline: none;
-        }
-      }
-
-      span {
-        color: green;
-      }
+    }
+    span {
+      color: green;
     }
   }
 }
