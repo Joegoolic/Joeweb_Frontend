@@ -87,7 +87,7 @@ function Contact() {
     }
   };
   
-  const containerRef = useRef(null);
+  const containerRefc = useRef(null);
     const [isVisible, setIsVisible] = useState(false)
 
     const callbackFunction = (entries) => {
@@ -102,15 +102,15 @@ function Contact() {
     }
     useEffect(() => {
       const observer = new IntersectionObserver(callbackFunction, options)
-        if(containerRef.current) observer.observe(containerRef.current)
+        if(containerRefc.current) observer.observe(containerRefc.current)
         return () => {
-          if(containerRef.current)observer.unobserve(containerRef.current)
+          if(containerRefc.current)observer.unobserve(containerRefc.current)
         }
-      },[containerRef,options])
+      },[containerRefc,options])
 
   return (
-    <div className={styleContact.contact} id="contact">
-      <div className={styleContact.leftc} ref={containerRef}>
+    <div className={styleContact.contact} ref={containerRefc} id="contact">
+      <div className={styleContact.leftc} ref={containerRefc}>
       <AnimatePresence>
       {isVisible &&(
         <motion.div
@@ -127,7 +127,7 @@ function Contact() {
       )}
       </AnimatePresence>
       </div>
-      <div className={styleContact.rightc}>
+      <div className={styleContact.rightc} ref={containerRefc}>
         <ToastContainer />
         <AnimatePresence>
         {isVisible &&(
