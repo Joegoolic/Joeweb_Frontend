@@ -110,6 +110,7 @@ function Contact() {
 
   return (
     <div className={styleContact.contact} ref={containerRefc} id="contact">
+      <div ref={containerRefc}></div>
       <div className={styleContact.leftc} ref={containerRefc}>
       <AnimatePresence>
       {isVisible &&(
@@ -127,6 +128,7 @@ function Contact() {
       )}
       </AnimatePresence>
       </div>
+      <div ref={containerRefc}></div>
       <div className={styleContact.rightc} ref={containerRefc}>
         <ToastContainer />
         <AnimatePresence>
