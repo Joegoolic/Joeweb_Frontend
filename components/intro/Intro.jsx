@@ -44,8 +44,8 @@ export default function Intro() {
           
 
     return (
-        <div className={stylesintro.intro} ref={containerRef} id="intro">
-            <div className={stylesintro.leftI}>
+        <div className={stylesintro.intro} id="intro">
+            <div ref={containerRef} className={stylesintro.leftI}>
             <AnimatePresence>
             {isVisible&& (<motion.div
                 key="intro_text"

@@ -107,10 +107,10 @@ function Contact() {
           if(containerRef.current)observer.unobserve(containerRef.current)
         }
       },[containerRef,options])
-      
+
   return (
-    <div className={styleContact.contact} ref={containerRef} id="contact">
-      <div className={styleContact.leftc}>
+    <div className={styleContact.contact} id="contact">
+      <div className={styleContact.leftc} ref={containerRef}>
       <AnimatePresence>
       {isVisible &&(
         <motion.div

@@ -34,6 +34,11 @@ $Mobile_width_min: 1px;
     @content;
   }
 }
+@mixin Short_Wide {
+  @media screen and (max-height: 800px) and (min-height: 600px) and(max-width: 1600px) and (min-width: 1000px) {
+    @content;
+  }
+}
 @mixin Tablet {
   @media screen and (max-width: #{$Tablet_width_max})and(min-width: #{$Tablet_width_min}) {
     @content;
