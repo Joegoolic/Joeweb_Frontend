@@ -33,7 +33,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: calc(100vh - (70px + 10vh));
 
       @include Tablet_Mobile {
         margin-top: 10vh;
@@ -51,7 +50,6 @@
 
       .item {
         width: 60vw;
-        height: 100%;
         background-color: white;
         border-radius: 3%;
         display: flex;
@@ -67,7 +65,7 @@
           scroll-snap-align: end;
         }
         .topContainer {
-          flex: 0 1 auto;
+          flex: 0 1 100%;
           margin: 0.5%;
           width: 100%;
           display: flex;
@@ -76,13 +74,15 @@
           .imgContainer {
             flex: auto;
             display: flex;
+            flex: 0 1 100%;
             margin: 0.5%;
             height: auto;
             justify-content: center;
             .Clicker {
-              max-width: 100%;
+              /* max-width: 100%;
               max-height: 100%;
-              height: auto;
+              height: auto; */
+              flex: 1 1 100%;
               border-radius: 3%;
               border: solid 1px #000000;
               img {
@@ -109,7 +109,6 @@
           }
           .imgContainer {
             max-width: 4vw;
-            height: auto;
             border-radius: 50%;
             background-color: #a9c2e3;
             overflow: hidden;
