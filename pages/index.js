@@ -7,7 +7,7 @@ import Contact from "../components/contact/Contact";
 import Menu from "../components/menu/Menu";
 import stylesapp from "./app.module.scss";
 import { useState } from "react";
-import {API_URL_REMOTE } from "../config/index";
+import {API_URL} from "../config/index";
 
 function Home(projects) {
     const [menuOpen, setMenuOpen] = useState(false)

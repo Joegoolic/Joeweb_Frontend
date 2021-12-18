@@ -58,7 +58,7 @@ function Contact() {
         setNoMessageError(false)
         setWrongEmailError(false)
         setMessage(true)
-        Axios.post(`${API_URL}/api/email/`, {
+        Axios.post(`${API_URL_REMOTE}/api/email/`, {
           'Name': mailerState.name,
           'Email': mailerState.email,
           'Message': mailerState.message,
