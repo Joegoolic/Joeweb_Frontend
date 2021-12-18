@@ -33,7 +33,7 @@ function Portfolio({ projects }) {
                     </div>
                   </div>
                 <div className={stylesPortfolio.MidContainer}>
-                  <img className = {stylesPortfolio.imgContainer}src={project.thumbnail}/>
+                  <img className = {stylesPortfolio.imgContainer}src={urlchanger(project.thumbnail)}/>
                   <div className={stylesPortfolio.HeaderContainer}>
                     <Link href={project.link} target="_blank"><h2 className={stylesPortfolio.Clicker}>{project.title}</h2></Link>
                   </div>
