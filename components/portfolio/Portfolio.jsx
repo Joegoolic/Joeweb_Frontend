@@ -2,7 +2,7 @@ import { useState } from "react";
 import stylesPortfolio from "./portfolio.module.scss";
 import { IoIosArrowForward, IoIosArrowBack} from "react-icons/io";
 import Link from 'next/link'
-import { urlchanger } from "../../helpers";
+import { urlchanger } from "../../helpers/index";
 
 function Portfolio({ projects }) {
   const [currentSlide, setCurrentSlide] = useState(0);
