@@ -2,7 +2,7 @@ import { useState } from "react";
 import stylesPortfolio from "./portfolio.module.scss";
 import { IoIosArrowForward, IoIosArrowBack} from "react-icons/io";
 import Link from 'next/link'
-//import { urlchanger } from "../../helpers/index";
+import { urlchanger } from "../../helpers/index";
 
 function Portfolio({ projects }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -23,12 +23,12 @@ function Portfolio({ projects }) {
                   <div className={stylesPortfolio.topContainer}>
                     <div className={stylesPortfolio.imgContainer}>
                       <Link href={project.link}>
-                        {/* <img className={stylesPortfolio.Clicker}src={urlchanger(project.project_image[0].image)}
-                        alt="Front Page of website"
-                        /> */}
-                        <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
+                        <img className={stylesPortfolio.Clicker}src={urlchanger(project.project_image[0].image)}
                         alt="Front Page of website"
                         />
+                        {/* <img className={stylesPortfolio.Clicker}src={project.project_image[0].image}
+                        alt="Front Page of website"
+                        /> */}
                       </Link>
                     </div>
                   </div>
