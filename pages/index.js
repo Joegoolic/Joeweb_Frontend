@@ -45,7 +45,7 @@ function Home(projects) {
     );
 }
 export async function getServerSideProps() {
-    const res = await fetch(`${API_URL_REMOTE}/api/Projects/`);
+    const res = await fetch(`${API_URL}/api/Projects/`);
     const projects = await res.json();
     return {
         props: {
