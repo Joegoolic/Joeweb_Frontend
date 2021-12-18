@@ -44,13 +44,14 @@ function Home(projects) {
        
     );
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const res = await fetch(`${API_URL}/api/Projects/`);
     const projects = await res.json();
     return {
         props: {
             projects
-        }
+        },
+        revalidate: 60,
     };
 }
 
