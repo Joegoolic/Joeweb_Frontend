@@ -5,7 +5,7 @@ import styleContact from "./contact.module.scss";
 import Image from 'next/image'
 import Contact_svg from '../../assets/shake.svg';
 import Axios from "axios";
-import { API_URL } from "../../config/index";
+import {API_URL_REMOTE } from "../config/index";
 import { useEffect,useRef } from "react";
 import { motion,AnimatePresence } from "framer-motion"
 
@@ -58,7 +58,7 @@ function Contact() {
         setNoMessageError(false)
         setWrongEmailError(false)
         setMessage(true)
-        Axios.post(`${API_URL}/api/email/`, {
+        Axios.post(`${API_URL_REMOTE}/api/email/`, {
           'Name': mailerState.name,
           'Email': mailerState.email,
           'Message': mailerState.message,
