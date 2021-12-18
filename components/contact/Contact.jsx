@@ -5,7 +5,7 @@ import styleContact from "./contact.module.scss";
 import Image from 'next/image'
 import Contact_svg from '../../assets/shake.svg';
 import Axios from "axios";
-import {API_URL_REMOTE } from "../config/index";
+import {API_URL_REMOTE } from "../../config/index";
 import { useEffect,useRef } from "react";
 import { motion,AnimatePresence } from "framer-motion"
 
