@@ -30,6 +30,7 @@
 
     .container {
       width: 100vw;
+      max-height: calc(100vh - (70px + 10vh));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -50,6 +51,7 @@
 
       .item {
         width: 60vw;
+        max-height: calc(100vh - (70px + 10vh));
         background-color: white;
         border-radius: 3%;
         display: flex;
@@ -171,12 +173,13 @@
           min-height: 20vh;
         }
         .description {
-          margin: 1%;
+          //margin: 1%;
           display: flex;
           text-align: center;
           justify-content: center;
           overflow: hidden;
           word-wrap: break-word;
+          margin: 0.5rem;
           p {
             font-family: "Space Grotesk";
             line-height: 1.6;
@@ -190,6 +193,7 @@
           justify-content: center;
           word-wrap: break-word;
           overflow: hidden;
+          margin: 0.5rem;
           @include Tablet {
             margin-top: 1%;
           }
