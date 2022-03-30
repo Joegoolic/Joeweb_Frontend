@@ -1,7 +1,7 @@
 import stylesintro from './intro.module.scss'
 import Image from 'next/image'
-import JG_white from '../../assets/JG_white.svg'
-import JEG from '../../assets/JEG.jpeg'
+import JG_white from '../../public/JG_white.svg'
+import JEG from '../../public/JEG.jpeg'
 import { useState,useEffect,useRef } from 'react';
 import { motion,AnimatePresence } from "framer-motion"
 

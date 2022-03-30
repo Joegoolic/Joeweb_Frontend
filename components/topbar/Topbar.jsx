@@ -3,7 +3,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import stylestopbar from "./topbar.module.scss";
 
-//test
 export default function Topbar({ menuOpen, setMenuOpen }) {
     return (
         <div className={menuOpen ? [stylestopbar.topbar, stylestopbar.active].join(" ") : stylestopbar.topbar}>
